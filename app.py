@@ -3,8 +3,10 @@ from sentence_transformers import SentenceTransformer
 
 app = FastAPI()
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
-
+model = SentenceTransformer(
+    "all-MiniLM-L6-v2",
+    device="cpu"
+)
 @app.get("/health")
 def health():
     return {"status": "ok"}
